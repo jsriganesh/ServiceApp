@@ -1,3 +1,4 @@
 export const labels = {
-    location:'Location'
+    location:'Location',
+    chooseServiceType:'Choose service type'
 }

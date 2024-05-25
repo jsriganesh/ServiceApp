@@ -1,0 +1,1 @@
+export interface ServiceDetails {serviceName:string,key:string,serviceId:number}

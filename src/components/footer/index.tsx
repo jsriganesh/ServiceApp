@@ -1,17 +1,23 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { useState } from "react";
 import { colors } from "../../utils/colors";
+import { ScreenName } from "../../utils/screenNames";
+import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { updateActiveFooter } from "../../redux/slices/footerSlice";
 
 const footerOptions = [
   {
     label: "Home",
     icon: require("../../assets/images/footerImage/home.png"),
     key: "home",
+    navigateTo: ScreenName.customerDashboard,
   },
   {
     label: "Booking",
     icon: require("../../assets/images/footerImage/booking.png"),
     key: "booking",
+    navigateTo: ScreenName.bookService,
   },
   {
     label: "booking1",
@@ -34,27 +40,38 @@ const footerOptions = [
 ];
 
 const Footer = () => {
-  const [activeFooter, updateActiveFooter] = useState("home");
+  const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+  const { selectedFooterOption } = useAppSelector((state) => state.footer);
 
   return (
     <View style={styles.container}>
       {footerOptions.map((opt, index) => {
         return (
           <TouchableOpacity
-            onPress={() => updateActiveFooter(opt.key)}
+            onPress={() => {
+              dispatch(updateActiveFooter(opt.key));
+              if (opt.navigateTo) {
+                navigation.navigate(opt.navigateTo as never);
+              }
+            }}
             key={index}
             style={
-              activeFooter === opt.key ? styles.activeSyle : styles.inActiveSyle
+              selectedFooterOption === opt.key
+                ? styles.activeSyle
+                : styles.inActiveSyle
             }
           >
             <Image
               tintColor={
-                activeFooter === opt.key ? colors.themeColor : colors.white
+                selectedFooterOption === opt.key
+                  ? colors.themeColor
+                  : colors.white
               }
               source={opt.icon}
               style={{ height: 20, width: 20 }}
             />
-            {activeFooter === opt.key && (
+            {selectedFooterOption === opt.key && (
               <Text style={{ color: colors.themeColor, marginLeft: 5 }}>
                 {opt.label}
               </Text>
@@ -86,7 +103,7 @@ const styles = StyleSheet.create({
   activeSyle: {
     paddingHorizontal: 10,
     flexDirection: "row",
-    borderRadius: 30,
+    borderRadius: 25,
     height: 30,
     backgroundColor: colors.white,
     alignItems: "center",
@@ -97,8 +114,8 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     textAlign: "center",
     verticalAlign: "middle",
-    height: 40,
-    width: 50,
+    height: 35,
+    width: 45,
     backgroundColor: colors.black,
     justifyContent: "center",
     alignItems: "center",

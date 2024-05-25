@@ -42,3 +42,11 @@ export const Text12PXRegular = styled.Text`
   font-size: 12px;
   font-family: '${CustomeFonts.fontRegular}';
 `
+
+
+export const Text18PXBold = styled.Text`
+  color: ${colors.white};
+  font-size: 18px;
+  font-family: '${CustomeFonts.fontBold}';
+`
+
