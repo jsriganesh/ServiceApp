@@ -42,11 +42,22 @@ export const Text12PXRegular = styled.Text`
   font-size: 12px;
   font-family: '${CustomeFonts.fontRegular}';
 `
-
+export const Text14PXBold = styled.Text`
+  color: ${colors.themeColor};
+  font-size: 14px;
+  font-family: '${CustomeFonts.fontBold}';
+`
 
 export const Text18PXBold = styled.Text`
   color: ${colors.white};
   font-size: 18px;
   font-family: '${CustomeFonts.fontBold}';
+`
+
+export const TextHyperLink12PXBold = styled.Text`
+color: ${colors.hyperLinkBlue};
+font-size: 12px;
+font-family: '${CustomeFonts.fontBoldItalic}';
+text-decoration-line: underline;
 `
 

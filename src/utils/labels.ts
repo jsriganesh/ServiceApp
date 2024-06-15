@@ -5,5 +5,9 @@ export const labels = {
     description:'Description',
     setPreferredTiming:'Set Preferred Timing',
     uploadImages:'Upload Images',
-    bookNow:'Book Now'
+    bookNow:'Book Now',
+    upcomingBookings:'Upcoming Bookings',
+    pastBookings:'Past Bookings',
+    cancel:'Cancel',
+    bookingDetails:'Booking Details'
 }

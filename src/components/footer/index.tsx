@@ -17,12 +17,12 @@ const footerOptions = [
     label: "Booking",
     icon: require("../../assets/images/footerImage/booking.png"),
     key: "booking",
-    navigateTo: ScreenName.bookService,
+    navigateTo: ScreenName.bookingHistory,
   },
   {
     label: "booking1",
     icon: require("../../assets/images/footerImage/booking.png"),
-
+    navigateTo: ScreenName.bookService,
     key: "booking1",
   },
   {
